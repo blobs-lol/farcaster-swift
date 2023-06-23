@@ -1,6 +1,9 @@
 bindings:
 	# TODO(michael): Pull proto schemas from @farcaster/protobufs
-	protoc -I Protos --swift_out=Sources/Generated Protos/*.proto
+	protoc Protos/*.proto	\
+		-I Protos	\
+		--swift_out=Sources/Generated	\
+		--grpc-swift_out=Client=true,Server=false:Sources/Generated
 
 build:
 	swift build
