@@ -8,6 +8,11 @@
 import GRPC
 import NIO
 
+enum ValidationError: Error {
+    case invalidAddress(address: String)
+    case portNotFound
+}
+
 class HubServiceClientBuilder {
     private let cfg: GRPCChannelPool.Configuration
     private var callOptions: CallOptions
@@ -123,10 +128,12 @@ class HubServiceAsyncClientBuilder {
 
 private func getHostAndPort(address: String) throws -> (String, Int) {
     let parts = address.components(separatedBy: ":")
-    // TODO(michael): validate address
+    if parts.count != 2 {
+        throw ValidationError.invalidAddress(address: address)
+    }
     let host = parts[0]
     guard let port = Int(parts[1]) else {
-        fatalError("port not found")
+        throw ValidationError.portNotFound
     }
     return (host, port)
 }
