@@ -20,17 +20,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum UserNameType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum UserNameType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
   case fname // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .fname
@@ -38,7 +38,7 @@ enum UserNameType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .fname: return 1
@@ -52,7 +52,7 @@ enum UserNameType: SwiftProtobuf.Enum {
 
 extension UserNameType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [UserNameType] = [
+  public static var allCases: [UserNameType] = [
     .none,
     .fname,
   ]
@@ -60,26 +60,26 @@ extension UserNameType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct UserNameProof {
+public struct UserNameProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var name: Data = Data()
+  public var name: Data = Data()
 
-  var owner: Data = Data()
+  public var owner: Data = Data()
 
-  var signature: Data = Data()
+  public var signature: Data = Data()
 
-  var fid: UInt64 = 0
+  public var fid: UInt64 = 0
 
-  var type: UserNameType = .none
+  public var type: UserNameType = .none
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -90,15 +90,15 @@ extension UserNameProof: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension UserNameType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "USERNAME_TYPE_NONE"),
     1: .same(proto: "USERNAME_TYPE_FNAME"),
   ]
 }
 
 extension UserNameProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "UserNameProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "UserNameProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "timestamp"),
     2: .same(proto: "name"),
     3: .same(proto: "owner"),
@@ -107,7 +107,7 @@ extension UserNameProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     6: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -124,7 +124,7 @@ extension UserNameProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.timestamp != 0 {
       try visitor.visitSingularUInt64Field(value: self.timestamp, fieldNumber: 1)
     }
@@ -146,7 +146,7 @@ extension UserNameProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: UserNameProof, rhs: UserNameProof) -> Bool {
+  public static func ==(lhs: UserNameProof, rhs: UserNameProof) -> Bool {
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.name != rhs.name {return false}
     if lhs.owner != rhs.owner {return false}

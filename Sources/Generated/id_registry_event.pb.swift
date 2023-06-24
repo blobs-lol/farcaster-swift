@@ -20,18 +20,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum IdRegistryEventType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum IdRegistryEventType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
   case register // = 1
   case transfer // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .register
@@ -40,7 +40,7 @@ enum IdRegistryEventType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .register: return 1
@@ -55,7 +55,7 @@ enum IdRegistryEventType: SwiftProtobuf.Enum {
 
 extension IdRegistryEventType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [IdRegistryEventType] = [
+  public static var allCases: [IdRegistryEventType] = [
     .none,
     .register,
     .transfer,
@@ -64,30 +64,30 @@ extension IdRegistryEventType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct IdRegistryEvent {
+public struct IdRegistryEvent {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var blockNumber: UInt32 = 0
+  public var blockNumber: UInt32 = 0
 
-  var blockHash: Data = Data()
+  public var blockHash: Data = Data()
 
-  var transactionHash: Data = Data()
+  public var transactionHash: Data = Data()
 
-  var logIndex: UInt32 = 0
+  public var logIndex: UInt32 = 0
 
-  var fid: UInt64 = 0
+  public var fid: UInt64 = 0
 
-  var to: Data = Data()
+  public var to: Data = Data()
 
-  var type: IdRegistryEventType = .none
+  public var type: IdRegistryEventType = .none
 
-  var from: Data = Data()
+  public var from: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -98,7 +98,7 @@ extension IdRegistryEvent: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension IdRegistryEventType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ID_REGISTRY_EVENT_TYPE_NONE"),
     1: .same(proto: "ID_REGISTRY_EVENT_TYPE_REGISTER"),
     2: .same(proto: "ID_REGISTRY_EVENT_TYPE_TRANSFER"),
@@ -106,8 +106,8 @@ extension IdRegistryEventType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension IdRegistryEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "IdRegistryEvent"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "IdRegistryEvent"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_number"),
     2: .standard(proto: "block_hash"),
     3: .standard(proto: "transaction_hash"),
@@ -118,7 +118,7 @@ extension IdRegistryEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     8: .same(proto: "from"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -137,7 +137,7 @@ extension IdRegistryEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.blockNumber != 0 {
       try visitor.visitSingularUInt32Field(value: self.blockNumber, fieldNumber: 1)
     }
@@ -165,7 +165,7 @@ extension IdRegistryEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: IdRegistryEvent, rhs: IdRegistryEvent) -> Bool {
+  public static func ==(lhs: IdRegistryEvent, rhs: IdRegistryEvent) -> Bool {
     if lhs.blockNumber != rhs.blockNumber {return false}
     if lhs.blockHash != rhs.blockHash {return false}
     if lhs.transactionHash != rhs.transactionHash {return false}

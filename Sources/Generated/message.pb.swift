@@ -21,19 +21,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 ///* Type of hashing scheme used to produce a digest of MessageData 
-enum HashScheme: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum HashScheme: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Default scheme for hashing MessageData
   case blake3 // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .blake3
@@ -41,7 +41,7 @@ enum HashScheme: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .blake3: return 1
@@ -55,7 +55,7 @@ enum HashScheme: SwiftProtobuf.Enum {
 
 extension HashScheme: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [HashScheme] = [
+  public static var allCases: [HashScheme] = [
     .none,
     .blake3,
   ]
@@ -64,8 +64,8 @@ extension HashScheme: CaseIterable {
 #endif  // swift(>=4.2)
 
 ///* Type of signature scheme used to sign the Message hash  
-enum SignatureScheme: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum SignatureScheme: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Ed25519 signature (default)
@@ -75,11 +75,11 @@ enum SignatureScheme: SwiftProtobuf.Enum {
   case eip712 // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .ed25519
@@ -88,7 +88,7 @@ enum SignatureScheme: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .ed25519: return 1
@@ -103,7 +103,7 @@ enum SignatureScheme: SwiftProtobuf.Enum {
 
 extension SignatureScheme: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [SignatureScheme] = [
+  public static var allCases: [SignatureScheme] = [
     .none,
     .ed25519,
     .eip712,
@@ -113,8 +113,8 @@ extension SignatureScheme: CaseIterable {
 #endif  // swift(>=4.2)
 
 ///* Type of the MessageBody 
-enum MessageType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum MessageType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Add a new Cast
@@ -151,11 +151,11 @@ enum MessageType: SwiftProtobuf.Enum {
   case userDataAdd // = 11
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .castAdd
@@ -173,7 +173,7 @@ enum MessageType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .castAdd: return 1
@@ -197,7 +197,7 @@ enum MessageType: SwiftProtobuf.Enum {
 
 extension MessageType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [MessageType] = [
+  public static var allCases: [MessageType] = [
     .none,
     .castAdd,
     .castRemove,
@@ -216,8 +216,8 @@ extension MessageType: CaseIterable {
 #endif  // swift(>=4.2)
 
 ///* Farcaster network the message is intended for 
-enum FarcasterNetwork: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum FarcasterNetwork: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Public primary network
@@ -230,11 +230,11 @@ enum FarcasterNetwork: SwiftProtobuf.Enum {
   case devnet // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .mainnet
@@ -244,7 +244,7 @@ enum FarcasterNetwork: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .mainnet: return 1
@@ -260,7 +260,7 @@ enum FarcasterNetwork: SwiftProtobuf.Enum {
 
 extension FarcasterNetwork: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [FarcasterNetwork] = [
+  public static var allCases: [FarcasterNetwork] = [
     .none,
     .mainnet,
     .testnet,
@@ -271,8 +271,8 @@ extension FarcasterNetwork: CaseIterable {
 #endif  // swift(>=4.2)
 
 ///* Type of UserData 
-enum UserDataType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum UserDataType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Profile Picture for the user
@@ -291,11 +291,11 @@ enum UserDataType: SwiftProtobuf.Enum {
   case fname // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .pfp
@@ -307,7 +307,7 @@ enum UserDataType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .pfp: return 1
@@ -325,7 +325,7 @@ enum UserDataType: SwiftProtobuf.Enum {
 
 extension UserDataType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [UserDataType] = [
+  public static var allCases: [UserDataType] = [
     .none,
     .pfp,
     .display,
@@ -338,8 +338,8 @@ extension UserDataType: CaseIterable {
 #endif  // swift(>=4.2)
 
 ///* Type of Reaction 
-enum ReactionType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum ReactionType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
 
   /// Like the target cast
@@ -349,11 +349,11 @@ enum ReactionType: SwiftProtobuf.Enum {
   case recast // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .like
@@ -362,7 +362,7 @@ enum ReactionType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .like: return 1
@@ -377,7 +377,7 @@ enum ReactionType: SwiftProtobuf.Enum {
 
 extension ReactionType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ReactionType] = [
+  public static var allCases: [ReactionType] = [
     .none,
     .like,
     .recast,
@@ -389,39 +389,39 @@ extension ReactionType: CaseIterable {
 ///* 
 /// A Message is a delta operation on the Farcaster network. The message protobuf is an envelope 
 /// that wraps a MessageData object and contains a hash and signature which can verify its authenticity. 
-struct Message {
+public struct Message {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Contents of the message
-  var data: MessageData {
+  public var data: MessageData {
     get {return _data ?? MessageData()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  var hasData: Bool {return self._data != nil}
+  public var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() {self._data = nil}
+  public mutating func clearData() {self._data = nil}
 
   /// Hash digest of data
-  var hash: Data = Data()
+  public var hash: Data = Data()
 
   /// Hash scheme that produced the hash digest
-  var hashScheme: HashScheme = .none
+  public var hashScheme: HashScheme = .none
 
   /// Signature of the hash digest
-  var signature: Data = Data()
+  public var signature: Data = Data()
 
   /// Signature scheme that produced the signature
-  var signatureScheme: SignatureScheme = .none
+  public var signatureScheme: SignatureScheme = .none
 
   /// Public key or address of the key pair that produced the signature
-  var signer: Data = Data()
+  public var signer: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _data: MessageData? = nil
 }
@@ -429,26 +429,26 @@ struct Message {
 ///* 
 /// A MessageData object contains properties common to all messages and wraps a body object which 
 /// contains properties specific to the MessageType.
-struct MessageData {
+public struct MessageData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Type of message contained in the body 
-  var type: MessageType = .none
+  public var type: MessageType = .none
 
   /// Farcaster ID of the user producing the message
-  var fid: UInt64 = 0
+  public var fid: UInt64 = 0
 
   /// Farcaster epoch timestamp in seconds
-  var timestamp: UInt32 = 0
+  public var timestamp: UInt32 = 0
 
   /// Farcaster network the message is intended for
-  var network: FarcasterNetwork = .none
+  public var network: FarcasterNetwork = .none
 
-  var body: MessageData.OneOf_Body? = nil
+  public var body: MessageData.OneOf_Body? = nil
 
-  var castAddBody: CastAddBody {
+  public var castAddBody: CastAddBody {
     get {
       if case .castAddBody(let v)? = body {return v}
       return CastAddBody()
@@ -456,7 +456,7 @@ struct MessageData {
     set {body = .castAddBody(newValue)}
   }
 
-  var castRemoveBody: CastRemoveBody {
+  public var castRemoveBody: CastRemoveBody {
     get {
       if case .castRemoveBody(let v)? = body {return v}
       return CastRemoveBody()
@@ -464,7 +464,7 @@ struct MessageData {
     set {body = .castRemoveBody(newValue)}
   }
 
-  var reactionBody: ReactionBody {
+  public var reactionBody: ReactionBody {
     get {
       if case .reactionBody(let v)? = body {return v}
       return ReactionBody()
@@ -472,7 +472,7 @@ struct MessageData {
     set {body = .reactionBody(newValue)}
   }
 
-  var verificationAddEthAddressBody: VerificationAddEthAddressBody {
+  public var verificationAddEthAddressBody: VerificationAddEthAddressBody {
     get {
       if case .verificationAddEthAddressBody(let v)? = body {return v}
       return VerificationAddEthAddressBody()
@@ -480,7 +480,7 @@ struct MessageData {
     set {body = .verificationAddEthAddressBody(newValue)}
   }
 
-  var verificationRemoveBody: VerificationRemoveBody {
+  public var verificationRemoveBody: VerificationRemoveBody {
     get {
       if case .verificationRemoveBody(let v)? = body {return v}
       return VerificationRemoveBody()
@@ -488,7 +488,7 @@ struct MessageData {
     set {body = .verificationRemoveBody(newValue)}
   }
 
-  var signerAddBody: SignerAddBody {
+  public var signerAddBody: SignerAddBody {
     get {
       if case .signerAddBody(let v)? = body {return v}
       return SignerAddBody()
@@ -496,7 +496,7 @@ struct MessageData {
     set {body = .signerAddBody(newValue)}
   }
 
-  var userDataBody: UserDataBody {
+  public var userDataBody: UserDataBody {
     get {
       if case .userDataBody(let v)? = body {return v}
       return UserDataBody()
@@ -504,7 +504,7 @@ struct MessageData {
     set {body = .userDataBody(newValue)}
   }
 
-  var signerRemoveBody: SignerRemoveBody {
+  public var signerRemoveBody: SignerRemoveBody {
     get {
       if case .signerRemoveBody(let v)? = body {return v}
       return SignerRemoveBody()
@@ -512,7 +512,7 @@ struct MessageData {
     set {body = .signerRemoveBody(newValue)}
   }
 
-  var linkBody: LinkBody {
+  public var linkBody: LinkBody {
     get {
       if case .linkBody(let v)? = body {return v}
       return LinkBody()
@@ -520,9 +520,9 @@ struct MessageData {
     set {body = .linkBody(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Body: Equatable {
+  public enum OneOf_Body: Equatable {
     case castAddBody(CastAddBody)
     case castRemoveBody(CastRemoveBody)
     case reactionBody(ReactionBody)
@@ -534,7 +534,7 @@ struct MessageData {
     case linkBody(LinkBody)
 
   #if !swift(>=4.1)
-    static func ==(lhs: MessageData.OneOf_Body, rhs: MessageData.OneOf_Body) -> Bool {
+    public static func ==(lhs: MessageData.OneOf_Body, rhs: MessageData.OneOf_Body) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -581,74 +581,74 @@ struct MessageData {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds an Ed25519 key pair that signs messages for a user 
-struct SignerAddBody {
+public struct SignerAddBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Public key of the Ed25519 key pair
-  var signer: Data = Data()
+  public var signer: Data = Data()
 
   /// Name of the key pair
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
 }
 
 ///* Removes an Ed25519 key pair that signs messages for a user 
-struct SignerRemoveBody {
+public struct SignerRemoveBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Public key of the Ed25519 key pair
-  var signer: Data = Data()
+  public var signer: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds metadata about a user 
-struct UserDataBody {
+public struct UserDataBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Type of metadata
-  var type: UserDataType = .none
+  public var type: UserDataType = .none
 
   /// Value of the metadata
-  var value: String = String()
+  public var value: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Embed {
+public struct Embed {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var embed: Embed.OneOf_Embed? = nil
+  public var embed: Embed.OneOf_Embed? = nil
 
-  var url: String {
+  public var url: String {
     get {
       if case .url(let v)? = embed {return v}
       return String()
@@ -656,7 +656,7 @@ struct Embed {
     set {embed = .url(newValue)}
   }
 
-  var castID: CastId {
+  public var castID: CastId {
     get {
       if case .castID(let v)? = embed {return v}
       return CastId()
@@ -664,7 +664,7 @@ struct Embed {
     set {embed = .castID(newValue)}
   }
 
-  var fid: UInt64 {
+  public var fid: UInt64 {
     get {
       if case .fid(let v)? = embed {return v}
       return 0
@@ -672,15 +672,15 @@ struct Embed {
     set {embed = .fid(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Embed: Equatable {
+  public enum OneOf_Embed: Equatable {
     case url(String)
     case castID(CastId)
     case fid(UInt64)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Embed.OneOf_Embed, rhs: Embed.OneOf_Embed) -> Bool {
+    public static func ==(lhs: Embed.OneOf_Embed, rhs: Embed.OneOf_Embed) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -703,25 +703,25 @@ struct Embed {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds a new Cast 
-struct CastAddBody {
+public struct CastAddBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// URLs to be embedded in the cast
-  var embedsDeprecated: [String] = []
+  public var embedsDeprecated: [String] = []
 
   /// Fids mentioned in the cast
-  var mentions: [UInt64] = []
+  public var mentions: [UInt64] = []
 
-  var parent: CastAddBody.OneOf_Parent? = nil
+  public var parent: CastAddBody.OneOf_Parent? = nil
 
   /// Parent cast of the cast
-  var parentCastID: CastId {
+  public var parentCastID: CastId {
     get {
       if case .parentCastID(let v)? = parent {return v}
       return CastId()
@@ -730,7 +730,7 @@ struct CastAddBody {
   }
 
   /// Parent URL
-  var parentURL: String {
+  public var parentURL: String {
     get {
       if case .parentURL(let v)? = parent {return v}
       return String()
@@ -739,24 +739,24 @@ struct CastAddBody {
   }
 
   /// Text of the cast
-  var text: String = String()
+  public var text: String = String()
 
   /// Positions of the mentions in the text
-  var mentionsPositions: [UInt32] = []
+  public var mentionsPositions: [UInt32] = []
 
   /// URLs or cast ids to be embedded in the cast
-  var embeds: [Embed] = []
+  public var embeds: [Embed] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Parent: Equatable {
+  public enum OneOf_Parent: Equatable {
     /// Parent cast of the cast
     case parentCastID(CastId)
     /// Parent URL
     case parentURL(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: CastAddBody.OneOf_Parent, rhs: CastAddBody.OneOf_Parent) -> Bool {
+    public static func ==(lhs: CastAddBody.OneOf_Parent, rhs: CastAddBody.OneOf_Parent) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -775,53 +775,53 @@ struct CastAddBody {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///* Removes an existing Cast 
-struct CastRemoveBody {
+public struct CastRemoveBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Hash of the cast to remove
-  var targetHash: Data = Data()
+  public var targetHash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///* Identifier used to look up a Cast 
-struct CastId {
+public struct CastId {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Fid of the user who created the cast
-  var fid: UInt64 = 0
+  public var fid: UInt64 = 0
 
   /// Hash of the cast
-  var hash: Data = Data()
+  public var hash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds or removes a Reaction from a Cast 
-struct ReactionBody {
+public struct ReactionBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Type of reaction
-  var type: ReactionType = .none
+  public var type: ReactionType = .none
 
-  var target: ReactionBody.OneOf_Target? = nil
+  public var target: ReactionBody.OneOf_Target? = nil
 
   /// CastId of the Cast to react to
-  var targetCastID: CastId {
+  public var targetCastID: CastId {
     get {
       if case .targetCastID(let v)? = target {return v}
       return CastId()
@@ -830,7 +830,7 @@ struct ReactionBody {
   }
 
   /// URL to react to
-  var targetURL: String {
+  public var targetURL: String {
     get {
       if case .targetURL(let v)? = target {return v}
       return String()
@@ -838,16 +838,16 @@ struct ReactionBody {
     set {target = .targetURL(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Target: Equatable {
+  public enum OneOf_Target: Equatable {
     /// CastId of the Cast to react to
     case targetCastID(CastId)
     /// URL to react to
     case targetURL(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: ReactionBody.OneOf_Target, rhs: ReactionBody.OneOf_Target) -> Bool {
+    public static func ==(lhs: ReactionBody.OneOf_Target, rhs: ReactionBody.OneOf_Target) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -866,66 +866,66 @@ struct ReactionBody {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds a Verification of ownership of an Ethereum Address 
-struct VerificationAddEthAddressBody {
+public struct VerificationAddEthAddressBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Ethereum address being verified
-  var address: Data = Data()
+  public var address: Data = Data()
 
   /// Signature produced by the user's Ethereum address
-  var ethSignature: Data = Data()
+  public var ethSignature: Data = Data()
 
   /// Hash of the latest Ethereum block when the signature was produced
-  var blockHash: Data = Data()
+  public var blockHash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///* Removes a Verification of any type 
-struct VerificationRemoveBody {
+public struct VerificationRemoveBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Address of the Verification to remove
-  var address: Data = Data()
+  public var address: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///* Adds or removes a Link 
-struct LinkBody {
+public struct LinkBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Type of link, <= 8 characters
-  var type: String = String()
+  public var type: String = String()
 
   /// User-defined timestamp that preserves original timestamp when message.data.timestamp needs to be updated for compaction
-  var displayTimestamp: UInt32 {
+  public var displayTimestamp: UInt32 {
     get {return _displayTimestamp ?? 0}
     set {_displayTimestamp = newValue}
   }
   /// Returns true if `displayTimestamp` has been explicitly set.
-  var hasDisplayTimestamp: Bool {return self._displayTimestamp != nil}
+  public var hasDisplayTimestamp: Bool {return self._displayTimestamp != nil}
   /// Clears the value of `displayTimestamp`. Subsequent reads from it will return its default value.
-  mutating func clearDisplayTimestamp() {self._displayTimestamp = nil}
+  public mutating func clearDisplayTimestamp() {self._displayTimestamp = nil}
 
-  var target: LinkBody.OneOf_Target? = nil
+  public var target: LinkBody.OneOf_Target? = nil
 
   /// The fid the link relates to
-  var targetFid: UInt64 {
+  public var targetFid: UInt64 {
     get {
       if case .targetFid(let v)? = target {return v}
       return 0
@@ -933,14 +933,14 @@ struct LinkBody {
     set {target = .targetFid(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Target: Equatable {
+  public enum OneOf_Target: Equatable {
     /// The fid the link relates to
     case targetFid(UInt64)
 
   #if !swift(>=4.1)
-    static func ==(lhs: LinkBody.OneOf_Target, rhs: LinkBody.OneOf_Target) -> Bool {
+    public static func ==(lhs: LinkBody.OneOf_Target, rhs: LinkBody.OneOf_Target) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -954,7 +954,7 @@ struct LinkBody {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _displayTimestamp: UInt32? = nil
 }
@@ -989,14 +989,14 @@ extension LinkBody.OneOf_Target: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension HashScheme: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HASH_SCHEME_NONE"),
     1: .same(proto: "HASH_SCHEME_BLAKE3"),
   ]
 }
 
 extension SignatureScheme: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SIGNATURE_SCHEME_NONE"),
     1: .same(proto: "SIGNATURE_SCHEME_ED25519"),
     2: .same(proto: "SIGNATURE_SCHEME_EIP712"),
@@ -1004,7 +1004,7 @@ extension SignatureScheme: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension MessageType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MESSAGE_TYPE_NONE"),
     1: .same(proto: "MESSAGE_TYPE_CAST_ADD"),
     2: .same(proto: "MESSAGE_TYPE_CAST_REMOVE"),
@@ -1021,7 +1021,7 @@ extension MessageType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension FarcasterNetwork: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FARCASTER_NETWORK_NONE"),
     1: .same(proto: "FARCASTER_NETWORK_MAINNET"),
     2: .same(proto: "FARCASTER_NETWORK_TESTNET"),
@@ -1030,7 +1030,7 @@ extension FarcasterNetwork: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension UserDataType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "USER_DATA_TYPE_NONE"),
     1: .same(proto: "USER_DATA_TYPE_PFP"),
     2: .same(proto: "USER_DATA_TYPE_DISPLAY"),
@@ -1041,7 +1041,7 @@ extension UserDataType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension ReactionType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "REACTION_TYPE_NONE"),
     1: .same(proto: "REACTION_TYPE_LIKE"),
     2: .same(proto: "REACTION_TYPE_RECAST"),
@@ -1049,8 +1049,8 @@ extension ReactionType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Message"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "Message"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
     2: .same(proto: "hash"),
     3: .standard(proto: "hash_scheme"),
@@ -1059,7 +1059,7 @@ extension Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     6: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1076,7 +1076,7 @@ extension Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1102,7 +1102,7 @@ extension Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Message, rhs: Message) -> Bool {
+  public static func ==(lhs: Message, rhs: Message) -> Bool {
     if lhs._data != rhs._data {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.hashScheme != rhs.hashScheme {return false}
@@ -1115,8 +1115,8 @@ extension Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
 }
 
 extension MessageData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MessageData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "MessageData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "fid"),
     3: .same(proto: "timestamp"),
@@ -1132,7 +1132,7 @@ extension MessageData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     14: .standard(proto: "link_body"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1264,7 +1264,7 @@ extension MessageData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1323,7 +1323,7 @@ extension MessageData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MessageData, rhs: MessageData) -> Bool {
+  public static func ==(lhs: MessageData, rhs: MessageData) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.fid != rhs.fid {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -1335,13 +1335,13 @@ extension MessageData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension SignerAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SignerAddBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "SignerAddBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signer"),
     2: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1354,7 +1354,7 @@ extension SignerAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1368,7 +1368,7 @@ extension SignerAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SignerAddBody, rhs: SignerAddBody) -> Bool {
+  public static func ==(lhs: SignerAddBody, rhs: SignerAddBody) -> Bool {
     if lhs.signer != rhs.signer {return false}
     if lhs._name != rhs._name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1377,12 +1377,12 @@ extension SignerAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 }
 
 extension SignerRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SignerRemoveBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "SignerRemoveBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1394,14 +1394,14 @@ extension SignerRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signer.isEmpty {
       try visitor.visitSingularBytesField(value: self.signer, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SignerRemoveBody, rhs: SignerRemoveBody) -> Bool {
+  public static func ==(lhs: SignerRemoveBody, rhs: SignerRemoveBody) -> Bool {
     if lhs.signer != rhs.signer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1409,13 +1409,13 @@ extension SignerRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension UserDataBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "UserDataBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "UserDataBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1428,7 +1428,7 @@ extension UserDataBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.type != .none {
       try visitor.visitSingularEnumField(value: self.type, fieldNumber: 1)
     }
@@ -1438,7 +1438,7 @@ extension UserDataBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: UserDataBody, rhs: UserDataBody) -> Bool {
+  public static func ==(lhs: UserDataBody, rhs: UserDataBody) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1447,14 +1447,14 @@ extension UserDataBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension Embed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Embed"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "Embed"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "url"),
     2: .standard(proto: "cast_id"),
     3: .same(proto: "fid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1494,7 +1494,7 @@ extension Embed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1517,7 +1517,7 @@ extension Embed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Embed, rhs: Embed) -> Bool {
+  public static func ==(lhs: Embed, rhs: Embed) -> Bool {
     if lhs.embed != rhs.embed {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1525,8 +1525,8 @@ extension Embed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
 }
 
 extension CastAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CastAddBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "CastAddBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "embeds_deprecated"),
     2: .same(proto: "mentions"),
     3: .standard(proto: "parent_cast_id"),
@@ -1536,7 +1536,7 @@ extension CastAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     6: .same(proto: "embeds"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1573,7 +1573,7 @@ extension CastAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1602,7 +1602,7 @@ extension CastAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CastAddBody, rhs: CastAddBody) -> Bool {
+  public static func ==(lhs: CastAddBody, rhs: CastAddBody) -> Bool {
     if lhs.embedsDeprecated != rhs.embedsDeprecated {return false}
     if lhs.mentions != rhs.mentions {return false}
     if lhs.parent != rhs.parent {return false}
@@ -1615,12 +1615,12 @@ extension CastAddBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension CastRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CastRemoveBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "CastRemoveBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "target_hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1632,14 +1632,14 @@ extension CastRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.targetHash.isEmpty {
       try visitor.visitSingularBytesField(value: self.targetHash, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CastRemoveBody, rhs: CastRemoveBody) -> Bool {
+  public static func ==(lhs: CastRemoveBody, rhs: CastRemoveBody) -> Bool {
     if lhs.targetHash != rhs.targetHash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1647,13 +1647,13 @@ extension CastRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension CastId: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CastId"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "CastId"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fid"),
     2: .same(proto: "hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1666,7 +1666,7 @@ extension CastId: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.fid != 0 {
       try visitor.visitSingularUInt64Field(value: self.fid, fieldNumber: 1)
     }
@@ -1676,7 +1676,7 @@ extension CastId: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: CastId, rhs: CastId) -> Bool {
+  public static func ==(lhs: CastId, rhs: CastId) -> Bool {
     if lhs.fid != rhs.fid {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1685,14 +1685,14 @@ extension CastId: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
 }
 
 extension ReactionBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ReactionBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "ReactionBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .standard(proto: "target_cast_id"),
     3: .standard(proto: "target_url"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1725,7 +1725,7 @@ extension ReactionBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1747,7 +1747,7 @@ extension ReactionBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ReactionBody, rhs: ReactionBody) -> Bool {
+  public static func ==(lhs: ReactionBody, rhs: ReactionBody) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs.target != rhs.target {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1756,14 +1756,14 @@ extension ReactionBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension VerificationAddEthAddressBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "VerificationAddEthAddressBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "VerificationAddEthAddressBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .standard(proto: "eth_signature"),
     3: .standard(proto: "block_hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1777,7 +1777,7 @@ extension VerificationAddEthAddressBody: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularBytesField(value: self.address, fieldNumber: 1)
     }
@@ -1790,7 +1790,7 @@ extension VerificationAddEthAddressBody: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: VerificationAddEthAddressBody, rhs: VerificationAddEthAddressBody) -> Bool {
+  public static func ==(lhs: VerificationAddEthAddressBody, rhs: VerificationAddEthAddressBody) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.ethSignature != rhs.ethSignature {return false}
     if lhs.blockHash != rhs.blockHash {return false}
@@ -1800,12 +1800,12 @@ extension VerificationAddEthAddressBody: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension VerificationRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "VerificationRemoveBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "VerificationRemoveBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1817,14 +1817,14 @@ extension VerificationRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularBytesField(value: self.address, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: VerificationRemoveBody, rhs: VerificationRemoveBody) -> Bool {
+  public static func ==(lhs: VerificationRemoveBody, rhs: VerificationRemoveBody) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1832,14 +1832,14 @@ extension VerificationRemoveBody: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension LinkBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "LinkBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "LinkBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "displayTimestamp"),
     3: .standard(proto: "target_fid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1860,7 +1860,7 @@ extension LinkBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1877,7 +1877,7 @@ extension LinkBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: LinkBody, rhs: LinkBody) -> Bool {
+  public static func ==(lhs: LinkBody, rhs: LinkBody) -> Bool {
     if lhs.type != rhs.type {return false}
     if lhs._displayTimestamp != rhs._displayTimestamp {return false}
     if lhs.target != rhs.target {return false}
