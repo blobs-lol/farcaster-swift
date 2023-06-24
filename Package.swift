@@ -28,6 +28,14 @@ let package = Package(
             sources: ["HubServiceClient", "Generated"]),
         .testTarget(
             name: "FarcasterTests",
-            dependencies: ["Farcaster"])
+            dependencies: ["Farcaster"]),
+        .executableTarget(
+            name: "Example",
+            dependencies: [
+                .product(name: "GRPC", package: "grpc-swift"),
+                .target(name: "Farcaster")
+            ],
+            path: "Example"
+        )
     ]
 )
