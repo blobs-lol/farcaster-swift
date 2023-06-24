@@ -4,8 +4,8 @@ bindings:
 		-I Protos	\
 		--swift_opt=Visibility=Public		\
 		--swift_out=Sources/Generated		\
-		--grpc-swift_opt=Visibility=Public	\
-		--grpc-swift_out=Client=true,Server=false:Sources/Generated
+		--grpc-swift_opt=Visibility=Public,Client=true,Server=false	\
+		--grpc-swift_out=Sources/Generated
 
 build:
 	make bindings
