@@ -25,17 +25,16 @@ let package = Package(
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             path: "Sources",
-            sources: ["HubServiceClient", "Generated"]),
+            sources: ["Generated", "Hub"]),
         .testTarget(
             name: "FarcasterTests",
             dependencies: ["Farcaster"]),
         .executableTarget(
             name: "Example",
             dependencies: [
-                .product(name: "GRPC", package: "grpc-swift"),
-                .target(name: "Farcaster")
+                .target(name: "Farcaster"),
+                .product(name: "GRPC", package: "grpc-swift")
             ],
-            path: "Example"
-        )
+            path: "Example")
     ]
 )
