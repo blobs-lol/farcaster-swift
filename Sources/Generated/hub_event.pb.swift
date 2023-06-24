@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum HubEventType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum HubEventType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case none // = 0
   case mergeMessage // = 1
   case pruneMessage // = 2
@@ -31,11 +31,11 @@ enum HubEventType: SwiftProtobuf.Enum {
   case mergeUsernameProof // = 6
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .none
     case 1: self = .mergeMessage
@@ -48,7 +48,7 @@ enum HubEventType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .none: return 0
     case .mergeMessage: return 1
@@ -67,7 +67,7 @@ enum HubEventType: SwiftProtobuf.Enum {
 
 extension HubEventType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [HubEventType] = [
+  public static var allCases: [HubEventType] = [
     .none,
     .mergeMessage,
     .pruneMessage,
@@ -80,158 +80,158 @@ extension HubEventType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct MergeMessageBody {
+public struct MergeMessageBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var message: Message {
+  public var message: Message {
     get {return _storage._message ?? Message()}
     set {_uniqueStorage()._message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
-  var hasMessage: Bool {return _storage._message != nil}
+  public var hasMessage: Bool {return _storage._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
-  mutating func clearMessage() {_uniqueStorage()._message = nil}
+  public mutating func clearMessage() {_uniqueStorage()._message = nil}
 
-  var deletedMessages: [Message] {
+  public var deletedMessages: [Message] {
     get {return _storage._deletedMessages}
     set {_uniqueStorage()._deletedMessages = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct PruneMessageBody {
+public struct PruneMessageBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var message: Message {
+  public var message: Message {
     get {return _message ?? Message()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
-  var hasMessage: Bool {return self._message != nil}
+  public var hasMessage: Bool {return self._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
-  mutating func clearMessage() {self._message = nil}
+  public mutating func clearMessage() {self._message = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _message: Message? = nil
 }
 
-struct RevokeMessageBody {
+public struct RevokeMessageBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var message: Message {
+  public var message: Message {
     get {return _message ?? Message()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
-  var hasMessage: Bool {return self._message != nil}
+  public var hasMessage: Bool {return self._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
-  mutating func clearMessage() {self._message = nil}
+  public mutating func clearMessage() {self._message = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _message: Message? = nil
 }
 
-struct MergeIdRegistryEventBody {
+public struct MergeIdRegistryEventBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var idRegistryEvent: IdRegistryEvent {
+  public var idRegistryEvent: IdRegistryEvent {
     get {return _idRegistryEvent ?? IdRegistryEvent()}
     set {_idRegistryEvent = newValue}
   }
   /// Returns true if `idRegistryEvent` has been explicitly set.
-  var hasIDRegistryEvent: Bool {return self._idRegistryEvent != nil}
+  public var hasIDRegistryEvent: Bool {return self._idRegistryEvent != nil}
   /// Clears the value of `idRegistryEvent`. Subsequent reads from it will return its default value.
-  mutating func clearIDRegistryEvent() {self._idRegistryEvent = nil}
+  public mutating func clearIDRegistryEvent() {self._idRegistryEvent = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _idRegistryEvent: IdRegistryEvent? = nil
 }
 
-struct MergeNameRegistryEventBody {
+public struct MergeNameRegistryEventBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var nameRegistryEvent: NameRegistryEvent {
+  public var nameRegistryEvent: NameRegistryEvent {
     get {return _nameRegistryEvent ?? NameRegistryEvent()}
     set {_nameRegistryEvent = newValue}
   }
   /// Returns true if `nameRegistryEvent` has been explicitly set.
-  var hasNameRegistryEvent: Bool {return self._nameRegistryEvent != nil}
+  public var hasNameRegistryEvent: Bool {return self._nameRegistryEvent != nil}
   /// Clears the value of `nameRegistryEvent`. Subsequent reads from it will return its default value.
-  mutating func clearNameRegistryEvent() {self._nameRegistryEvent = nil}
+  public mutating func clearNameRegistryEvent() {self._nameRegistryEvent = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _nameRegistryEvent: NameRegistryEvent? = nil
 }
 
-struct MergeUserNameProofBody {
+public struct MergeUserNameProofBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var usernameProof: UserNameProof {
+  public var usernameProof: UserNameProof {
     get {return _usernameProof ?? UserNameProof()}
     set {_usernameProof = newValue}
   }
   /// Returns true if `usernameProof` has been explicitly set.
-  var hasUsernameProof: Bool {return self._usernameProof != nil}
+  public var hasUsernameProof: Bool {return self._usernameProof != nil}
   /// Clears the value of `usernameProof`. Subsequent reads from it will return its default value.
-  mutating func clearUsernameProof() {self._usernameProof = nil}
+  public mutating func clearUsernameProof() {self._usernameProof = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _usernameProof: UserNameProof? = nil
 }
 
-struct HubEvent {
+public struct HubEvent {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var type: HubEventType {
+  public var type: HubEventType {
     get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
-  var id: UInt64 {
+  public var id: UInt64 {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
-  var body: OneOf_Body? {
+  public var body: OneOf_Body? {
     get {return _storage._body}
     set {_uniqueStorage()._body = newValue}
   }
 
-  var mergeMessageBody: MergeMessageBody {
+  public var mergeMessageBody: MergeMessageBody {
     get {
       if case .mergeMessageBody(let v)? = _storage._body {return v}
       return MergeMessageBody()
@@ -239,7 +239,7 @@ struct HubEvent {
     set {_uniqueStorage()._body = .mergeMessageBody(newValue)}
   }
 
-  var pruneMessageBody: PruneMessageBody {
+  public var pruneMessageBody: PruneMessageBody {
     get {
       if case .pruneMessageBody(let v)? = _storage._body {return v}
       return PruneMessageBody()
@@ -247,7 +247,7 @@ struct HubEvent {
     set {_uniqueStorage()._body = .pruneMessageBody(newValue)}
   }
 
-  var revokeMessageBody: RevokeMessageBody {
+  public var revokeMessageBody: RevokeMessageBody {
     get {
       if case .revokeMessageBody(let v)? = _storage._body {return v}
       return RevokeMessageBody()
@@ -255,7 +255,7 @@ struct HubEvent {
     set {_uniqueStorage()._body = .revokeMessageBody(newValue)}
   }
 
-  var mergeIDRegistryEventBody: MergeIdRegistryEventBody {
+  public var mergeIDRegistryEventBody: MergeIdRegistryEventBody {
     get {
       if case .mergeIDRegistryEventBody(let v)? = _storage._body {return v}
       return MergeIdRegistryEventBody()
@@ -263,7 +263,7 @@ struct HubEvent {
     set {_uniqueStorage()._body = .mergeIDRegistryEventBody(newValue)}
   }
 
-  var mergeNameRegistryEventBody: MergeNameRegistryEventBody {
+  public var mergeNameRegistryEventBody: MergeNameRegistryEventBody {
     get {
       if case .mergeNameRegistryEventBody(let v)? = _storage._body {return v}
       return MergeNameRegistryEventBody()
@@ -271,7 +271,7 @@ struct HubEvent {
     set {_uniqueStorage()._body = .mergeNameRegistryEventBody(newValue)}
   }
 
-  var mergeUsernameProofBody: MergeUserNameProofBody {
+  public var mergeUsernameProofBody: MergeUserNameProofBody {
     get {
       if case .mergeUsernameProofBody(let v)? = _storage._body {return v}
       return MergeUserNameProofBody()
@@ -279,9 +279,9 @@ struct HubEvent {
     set {_uniqueStorage()._body = .mergeUsernameProofBody(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Body: Equatable {
+  public enum OneOf_Body: Equatable {
     case mergeMessageBody(MergeMessageBody)
     case pruneMessageBody(PruneMessageBody)
     case revokeMessageBody(RevokeMessageBody)
@@ -290,7 +290,7 @@ struct HubEvent {
     case mergeUsernameProofBody(MergeUserNameProofBody)
 
   #if !swift(>=4.1)
-    static func ==(lhs: HubEvent.OneOf_Body, rhs: HubEvent.OneOf_Body) -> Bool {
+    public static func ==(lhs: HubEvent.OneOf_Body, rhs: HubEvent.OneOf_Body) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -325,7 +325,7 @@ struct HubEvent {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -345,7 +345,7 @@ extension HubEvent.OneOf_Body: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension HubEventType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "HUB_EVENT_TYPE_NONE"),
     1: .same(proto: "HUB_EVENT_TYPE_MERGE_MESSAGE"),
     2: .same(proto: "HUB_EVENT_TYPE_PRUNE_MESSAGE"),
@@ -357,8 +357,8 @@ extension HubEventType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension MergeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MergeMessageBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "MergeMessageBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
     2: .standard(proto: "deleted_messages"),
   ]
@@ -384,7 +384,7 @@ extension MergeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -400,7 +400,7 @@ extension MergeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -416,7 +416,7 @@ extension MergeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MergeMessageBody, rhs: MergeMessageBody) -> Bool {
+  public static func ==(lhs: MergeMessageBody, rhs: MergeMessageBody) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -433,12 +433,12 @@ extension MergeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension PruneMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "PruneMessageBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "PruneMessageBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -450,7 +450,7 @@ extension PruneMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -461,7 +461,7 @@ extension PruneMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: PruneMessageBody, rhs: PruneMessageBody) -> Bool {
+  public static func ==(lhs: PruneMessageBody, rhs: PruneMessageBody) -> Bool {
     if lhs._message != rhs._message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -469,12 +469,12 @@ extension PruneMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension RevokeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "RevokeMessageBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "RevokeMessageBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -486,7 +486,7 @@ extension RevokeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -497,7 +497,7 @@ extension RevokeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: RevokeMessageBody, rhs: RevokeMessageBody) -> Bool {
+  public static func ==(lhs: RevokeMessageBody, rhs: RevokeMessageBody) -> Bool {
     if lhs._message != rhs._message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -505,12 +505,12 @@ extension RevokeMessageBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension MergeIdRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MergeIdRegistryEventBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "MergeIdRegistryEventBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "id_registry_event"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -522,7 +522,7 @@ extension MergeIdRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -533,7 +533,7 @@ extension MergeIdRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MergeIdRegistryEventBody, rhs: MergeIdRegistryEventBody) -> Bool {
+  public static func ==(lhs: MergeIdRegistryEventBody, rhs: MergeIdRegistryEventBody) -> Bool {
     if lhs._idRegistryEvent != rhs._idRegistryEvent {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -541,12 +541,12 @@ extension MergeIdRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Messag
 }
 
 extension MergeNameRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MergeNameRegistryEventBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "MergeNameRegistryEventBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "name_registry_event"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -558,7 +558,7 @@ extension MergeNameRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -569,7 +569,7 @@ extension MergeNameRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MergeNameRegistryEventBody, rhs: MergeNameRegistryEventBody) -> Bool {
+  public static func ==(lhs: MergeNameRegistryEventBody, rhs: MergeNameRegistryEventBody) -> Bool {
     if lhs._nameRegistryEvent != rhs._nameRegistryEvent {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -577,12 +577,12 @@ extension MergeNameRegistryEventBody: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension MergeUserNameProofBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MergeUserNameProofBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "MergeUserNameProofBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "username_proof"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -594,7 +594,7 @@ extension MergeUserNameProofBody: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -605,7 +605,7 @@ extension MergeUserNameProofBody: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: MergeUserNameProofBody, rhs: MergeUserNameProofBody) -> Bool {
+  public static func ==(lhs: MergeUserNameProofBody, rhs: MergeUserNameProofBody) -> Bool {
     if lhs._usernameProof != rhs._usernameProof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -613,8 +613,8 @@ extension MergeUserNameProofBody: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension HubEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "HubEvent"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "HubEvent"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
     2: .same(proto: "id"),
     3: .standard(proto: "merge_message_body"),
@@ -648,7 +648,7 @@ extension HubEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -742,7 +742,7 @@ extension HubEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -785,7 +785,7 @@ extension HubEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: HubEvent, rhs: HubEvent) -> Bool {
+  public static func ==(lhs: HubEvent, rhs: HubEvent) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

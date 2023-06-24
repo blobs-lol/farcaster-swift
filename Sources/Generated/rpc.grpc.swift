@@ -28,7 +28,7 @@ import SwiftProtobuf
 
 
 /// Usage: instantiate `HubServiceClient`, then call methods of this protocol to make API calls.
-internal protocol HubServiceClientProtocol: GRPCClient {
+public protocol HubServiceClientProtocol: GRPCClient {
   var serviceName: String { get }
   var interceptors: HubServiceClientInterceptorFactoryProtocol? { get }
 
@@ -215,7 +215,7 @@ internal protocol HubServiceClientProtocol: GRPCClient {
 }
 
 extension HubServiceClientProtocol {
-  internal var serviceName: String {
+  public var serviceName: String {
     return "HubService"
   }
 
@@ -225,7 +225,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to SubmitMessage.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func submitMessage(
+  public func submitMessage(
     _ request: Message,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Message, Message> {
@@ -244,7 +244,7 @@ extension HubServiceClientProtocol {
   ///   - callOptions: Call options.
   ///   - handler: A closure called when each response is received from the server.
   /// - Returns: A `ServerStreamingCall` with futures for the metadata and status.
-  internal func subscribe(
+  public func subscribe(
     _ request: SubscribeRequest,
     callOptions: CallOptions? = nil,
     handler: @escaping (HubEvent) -> Void
@@ -264,7 +264,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetEvent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getEvent(
+  public func getEvent(
     _ request: EventRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<EventRequest, HubEvent> {
@@ -282,7 +282,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetCast.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getCast(
+  public func getCast(
     _ request: CastId,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<CastId, Message> {
@@ -300,7 +300,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetCastsByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getCastsByFid(
+  public func getCastsByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -318,7 +318,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetCastsByParent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getCastsByParent(
+  public func getCastsByParent(
     _ request: CastsByParentRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<CastsByParentRequest, MessagesResponse> {
@@ -336,7 +336,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetCastsByMention.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getCastsByMention(
+  public func getCastsByMention(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -354,7 +354,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetReaction.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getReaction(
+  public func getReaction(
     _ request: ReactionRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<ReactionRequest, Message> {
@@ -372,7 +372,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetReactionsByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getReactionsByFid(
+  public func getReactionsByFid(
     _ request: ReactionsByFidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<ReactionsByFidRequest, MessagesResponse> {
@@ -390,7 +390,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetReactionsByCast.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getReactionsByCast(
+  public func getReactionsByCast(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<ReactionsByTargetRequest, MessagesResponse> {
@@ -408,7 +408,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetReactionsByTarget.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getReactionsByTarget(
+  public func getReactionsByTarget(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<ReactionsByTargetRequest, MessagesResponse> {
@@ -426,7 +426,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetUserData.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getUserData(
+  public func getUserData(
     _ request: UserDataRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<UserDataRequest, Message> {
@@ -444,7 +444,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetUserDataByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getUserDataByFid(
+  public func getUserDataByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -462,7 +462,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetNameRegistryEvent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getNameRegistryEvent(
+  public func getNameRegistryEvent(
     _ request: NameRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<NameRegistryEventRequest, NameRegistryEvent> {
@@ -480,7 +480,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetVerification.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getVerification(
+  public func getVerification(
     _ request: VerificationRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<VerificationRequest, Message> {
@@ -498,7 +498,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetVerificationsByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getVerificationsByFid(
+  public func getVerificationsByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -516,7 +516,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetSigner.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getSigner(
+  public func getSigner(
     _ request: SignerRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<SignerRequest, Message> {
@@ -534,7 +534,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetSignersByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getSignersByFid(
+  public func getSignersByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -552,7 +552,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetIdRegistryEvent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getIdRegistryEvent(
+  public func getIdRegistryEvent(
     _ request: IdRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<IdRegistryEventRequest, IdRegistryEvent> {
@@ -570,7 +570,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetIdRegistryEventByAddress.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getIdRegistryEventByAddress(
+  public func getIdRegistryEventByAddress(
     _ request: IdRegistryEventByAddressRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<IdRegistryEventByAddressRequest, IdRegistryEvent> {
@@ -588,7 +588,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetFids.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getFids(
+  public func getFids(
     _ request: FidsRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidsRequest, FidsResponse> {
@@ -606,7 +606,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetLink.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getLink(
+  public func getLink(
     _ request: LinkRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<LinkRequest, Message> {
@@ -624,7 +624,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetLinksByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getLinksByFid(
+  public func getLinksByFid(
     _ request: LinksByFidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<LinksByFidRequest, MessagesResponse> {
@@ -642,7 +642,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetLinksByTarget.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getLinksByTarget(
+  public func getLinksByTarget(
     _ request: LinksByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<LinksByTargetRequest, MessagesResponse> {
@@ -660,7 +660,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllCastMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllCastMessagesByFid(
+  public func getAllCastMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -678,7 +678,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllReactionMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllReactionMessagesByFid(
+  public func getAllReactionMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -696,7 +696,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllVerificationMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllVerificationMessagesByFid(
+  public func getAllVerificationMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -714,7 +714,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllSignerMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllSignerMessagesByFid(
+  public func getAllSignerMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -732,7 +732,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllUserDataMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllUserDataMessagesByFid(
+  public func getAllUserDataMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -750,7 +750,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllLinkMessagesByFid.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllLinkMessagesByFid(
+  public func getAllLinkMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<FidRequest, MessagesResponse> {
@@ -768,7 +768,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetInfo.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getInfo(
+  public func getInfo(
     _ request: HubInfoRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<HubInfoRequest, HubInfoResponse> {
@@ -786,7 +786,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetSyncStatus.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getSyncStatus(
+  public func getSyncStatus(
     _ request: SyncStatusRequest,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<SyncStatusRequest, SyncStatusResponse> {
@@ -804,7 +804,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllSyncIdsByPrefix.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllSyncIdsByPrefix(
+  public func getAllSyncIdsByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<TrieNodePrefix, SyncIds> {
@@ -822,7 +822,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetAllMessagesBySyncIds.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getAllMessagesBySyncIds(
+  public func getAllMessagesBySyncIds(
     _ request: SyncIds,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<SyncIds, MessagesResponse> {
@@ -840,7 +840,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetSyncMetadataByPrefix.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getSyncMetadataByPrefix(
+  public func getSyncMetadataByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<TrieNodePrefix, TrieNodeMetadataResponse> {
@@ -858,7 +858,7 @@ extension HubServiceClientProtocol {
   ///   - request: Request to send to GetSyncSnapshotByPrefix.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func getSyncSnapshotByPrefix(
+  public func getSyncSnapshotByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<TrieNodePrefix, TrieNodeSnapshotResponse> {
@@ -875,16 +875,16 @@ extension HubServiceClientProtocol {
 extension HubServiceClient: @unchecked Sendable {}
 
 @available(*, deprecated, renamed: "HubServiceNIOClient")
-internal final class HubServiceClient: HubServiceClientProtocol {
+public final class HubServiceClient: HubServiceClientProtocol {
   private let lock = Lock()
   private var _defaultCallOptions: CallOptions
   private var _interceptors: HubServiceClientInterceptorFactoryProtocol?
-  internal let channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions {
+  public let channel: GRPCChannel
+  public var defaultCallOptions: CallOptions {
     get { self.lock.withLock { return self._defaultCallOptions } }
     set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
   }
-  internal var interceptors: HubServiceClientInterceptorFactoryProtocol? {
+  public var interceptors: HubServiceClientInterceptorFactoryProtocol? {
     get { self.lock.withLock { return self._interceptors } }
     set { self.lock.withLockVoid { self._interceptors = newValue } }
   }
@@ -895,7 +895,7 @@ internal final class HubServiceClient: HubServiceClientProtocol {
   ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
   ///   - interceptors: A factory providing interceptors for each RPC.
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: HubServiceClientInterceptorFactoryProtocol? = nil
@@ -906,10 +906,10 @@ internal final class HubServiceClient: HubServiceClientProtocol {
   }
 }
 
-internal struct HubServiceNIOClient: HubServiceClientProtocol {
-  internal var channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions
-  internal var interceptors: HubServiceClientInterceptorFactoryProtocol?
+public struct HubServiceNIOClient: HubServiceClientProtocol {
+  public var channel: GRPCChannel
+  public var defaultCallOptions: CallOptions
+  public var interceptors: HubServiceClientInterceptorFactoryProtocol?
 
   /// Creates a client for the HubService service.
   ///
@@ -917,7 +917,7 @@ internal struct HubServiceNIOClient: HubServiceClientProtocol {
   ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
   ///   - interceptors: A factory providing interceptors for each RPC.
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: HubServiceClientInterceptorFactoryProtocol? = nil
@@ -929,7 +929,7 @@ internal struct HubServiceNIOClient: HubServiceClientProtocol {
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-internal protocol HubServiceAsyncClientProtocol: GRPCClient {
+public protocol HubServiceAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: HubServiceClientInterceptorFactoryProtocol? { get }
 
@@ -1116,15 +1116,15 @@ internal protocol HubServiceAsyncClientProtocol: GRPCClient {
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension HubServiceAsyncClientProtocol {
-  internal static var serviceDescriptor: GRPCServiceDescriptor {
+  public static var serviceDescriptor: GRPCServiceDescriptor {
     return HubServiceClientMetadata.serviceDescriptor
   }
 
-  internal var interceptors: HubServiceClientInterceptorFactoryProtocol? {
+  public var interceptors: HubServiceClientInterceptorFactoryProtocol? {
     return nil
   }
 
-  internal func makeSubmitMessageCall(
+  public func makeSubmitMessageCall(
     _ request: Message,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Message, Message> {
@@ -1136,7 +1136,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeSubscribeCall(
+  public func makeSubscribeCall(
     _ request: SubscribeRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncServerStreamingCall<SubscribeRequest, HubEvent> {
@@ -1148,7 +1148,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetEventCall(
+  public func makeGetEventCall(
     _ request: EventRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<EventRequest, HubEvent> {
@@ -1160,7 +1160,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetCastCall(
+  public func makeGetCastCall(
     _ request: CastId,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<CastId, Message> {
@@ -1172,7 +1172,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetCastsByFidCall(
+  public func makeGetCastsByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1184,7 +1184,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetCastsByParentCall(
+  public func makeGetCastsByParentCall(
     _ request: CastsByParentRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<CastsByParentRequest, MessagesResponse> {
@@ -1196,7 +1196,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetCastsByMentionCall(
+  public func makeGetCastsByMentionCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1208,7 +1208,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetReactionCall(
+  public func makeGetReactionCall(
     _ request: ReactionRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<ReactionRequest, Message> {
@@ -1220,7 +1220,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetReactionsByFidCall(
+  public func makeGetReactionsByFidCall(
     _ request: ReactionsByFidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<ReactionsByFidRequest, MessagesResponse> {
@@ -1232,7 +1232,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetReactionsByCastCall(
+  public func makeGetReactionsByCastCall(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<ReactionsByTargetRequest, MessagesResponse> {
@@ -1244,7 +1244,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetReactionsByTargetCall(
+  public func makeGetReactionsByTargetCall(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<ReactionsByTargetRequest, MessagesResponse> {
@@ -1256,7 +1256,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetUserDataCall(
+  public func makeGetUserDataCall(
     _ request: UserDataRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<UserDataRequest, Message> {
@@ -1268,7 +1268,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetUserDataByFidCall(
+  public func makeGetUserDataByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1280,7 +1280,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetNameRegistryEventCall(
+  public func makeGetNameRegistryEventCall(
     _ request: NameRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<NameRegistryEventRequest, NameRegistryEvent> {
@@ -1292,7 +1292,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetVerificationCall(
+  public func makeGetVerificationCall(
     _ request: VerificationRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<VerificationRequest, Message> {
@@ -1304,7 +1304,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetVerificationsByFidCall(
+  public func makeGetVerificationsByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1316,7 +1316,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetSignerCall(
+  public func makeGetSignerCall(
     _ request: SignerRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<SignerRequest, Message> {
@@ -1328,7 +1328,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetSignersByFidCall(
+  public func makeGetSignersByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1340,7 +1340,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetIDRegistryEventCall(
+  public func makeGetIDRegistryEventCall(
     _ request: IdRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<IdRegistryEventRequest, IdRegistryEvent> {
@@ -1352,7 +1352,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetIDRegistryEventByAddressCall(
+  public func makeGetIDRegistryEventByAddressCall(
     _ request: IdRegistryEventByAddressRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<IdRegistryEventByAddressRequest, IdRegistryEvent> {
@@ -1364,7 +1364,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetFidsCall(
+  public func makeGetFidsCall(
     _ request: FidsRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidsRequest, FidsResponse> {
@@ -1376,7 +1376,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetLinkCall(
+  public func makeGetLinkCall(
     _ request: LinkRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<LinkRequest, Message> {
@@ -1388,7 +1388,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetLinksByFidCall(
+  public func makeGetLinksByFidCall(
     _ request: LinksByFidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<LinksByFidRequest, MessagesResponse> {
@@ -1400,7 +1400,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetLinksByTargetCall(
+  public func makeGetLinksByTargetCall(
     _ request: LinksByTargetRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<LinksByTargetRequest, MessagesResponse> {
@@ -1412,7 +1412,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllCastMessagesByFidCall(
+  public func makeGetAllCastMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1424,7 +1424,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllReactionMessagesByFidCall(
+  public func makeGetAllReactionMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1436,7 +1436,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllVerificationMessagesByFidCall(
+  public func makeGetAllVerificationMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1448,7 +1448,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllSignerMessagesByFidCall(
+  public func makeGetAllSignerMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1460,7 +1460,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllUserDataMessagesByFidCall(
+  public func makeGetAllUserDataMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1472,7 +1472,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllLinkMessagesByFidCall(
+  public func makeGetAllLinkMessagesByFidCall(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<FidRequest, MessagesResponse> {
@@ -1484,7 +1484,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetInfoCall(
+  public func makeGetInfoCall(
     _ request: HubInfoRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<HubInfoRequest, HubInfoResponse> {
@@ -1496,7 +1496,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetSyncStatusCall(
+  public func makeGetSyncStatusCall(
     _ request: SyncStatusRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<SyncStatusRequest, SyncStatusResponse> {
@@ -1508,7 +1508,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllSyncIdsByPrefixCall(
+  public func makeGetAllSyncIdsByPrefixCall(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<TrieNodePrefix, SyncIds> {
@@ -1520,7 +1520,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetAllMessagesBySyncIdsCall(
+  public func makeGetAllMessagesBySyncIdsCall(
     _ request: SyncIds,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<SyncIds, MessagesResponse> {
@@ -1532,7 +1532,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetSyncMetadataByPrefixCall(
+  public func makeGetSyncMetadataByPrefixCall(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<TrieNodePrefix, TrieNodeMetadataResponse> {
@@ -1544,7 +1544,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeGetSyncSnapshotByPrefixCall(
+  public func makeGetSyncSnapshotByPrefixCall(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<TrieNodePrefix, TrieNodeSnapshotResponse> {
@@ -1559,7 +1559,7 @@ extension HubServiceAsyncClientProtocol {
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension HubServiceAsyncClientProtocol {
-  internal func submitMessage(
+  public func submitMessage(
     _ request: Message,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1571,7 +1571,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func subscribe(
+  public func subscribe(
     _ request: SubscribeRequest,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncResponseStream<HubEvent> {
@@ -1583,7 +1583,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getEvent(
+  public func getEvent(
     _ request: EventRequest,
     callOptions: CallOptions? = nil
   ) async throws -> HubEvent {
@@ -1595,7 +1595,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getCast(
+  public func getCast(
     _ request: CastId,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1607,7 +1607,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getCastsByFid(
+  public func getCastsByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1619,7 +1619,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getCastsByParent(
+  public func getCastsByParent(
     _ request: CastsByParentRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1631,7 +1631,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getCastsByMention(
+  public func getCastsByMention(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1643,7 +1643,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getReaction(
+  public func getReaction(
     _ request: ReactionRequest,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1655,7 +1655,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getReactionsByFid(
+  public func getReactionsByFid(
     _ request: ReactionsByFidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1667,7 +1667,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getReactionsByCast(
+  public func getReactionsByCast(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1679,7 +1679,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getReactionsByTarget(
+  public func getReactionsByTarget(
     _ request: ReactionsByTargetRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1691,7 +1691,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getUserData(
+  public func getUserData(
     _ request: UserDataRequest,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1703,7 +1703,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getUserDataByFid(
+  public func getUserDataByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1715,7 +1715,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getNameRegistryEvent(
+  public func getNameRegistryEvent(
     _ request: NameRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) async throws -> NameRegistryEvent {
@@ -1727,7 +1727,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getVerification(
+  public func getVerification(
     _ request: VerificationRequest,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1739,7 +1739,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getVerificationsByFid(
+  public func getVerificationsByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1751,7 +1751,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getSigner(
+  public func getSigner(
     _ request: SignerRequest,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1763,7 +1763,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getSignersByFid(
+  public func getSignersByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1775,7 +1775,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getIdRegistryEvent(
+  public func getIdRegistryEvent(
     _ request: IdRegistryEventRequest,
     callOptions: CallOptions? = nil
   ) async throws -> IdRegistryEvent {
@@ -1787,7 +1787,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getIdRegistryEventByAddress(
+  public func getIdRegistryEventByAddress(
     _ request: IdRegistryEventByAddressRequest,
     callOptions: CallOptions? = nil
   ) async throws -> IdRegistryEvent {
@@ -1799,7 +1799,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getFids(
+  public func getFids(
     _ request: FidsRequest,
     callOptions: CallOptions? = nil
   ) async throws -> FidsResponse {
@@ -1811,7 +1811,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getLink(
+  public func getLink(
     _ request: LinkRequest,
     callOptions: CallOptions? = nil
   ) async throws -> Message {
@@ -1823,7 +1823,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getLinksByFid(
+  public func getLinksByFid(
     _ request: LinksByFidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1835,7 +1835,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getLinksByTarget(
+  public func getLinksByTarget(
     _ request: LinksByTargetRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1847,7 +1847,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllCastMessagesByFid(
+  public func getAllCastMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1859,7 +1859,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllReactionMessagesByFid(
+  public func getAllReactionMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1871,7 +1871,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllVerificationMessagesByFid(
+  public func getAllVerificationMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1883,7 +1883,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllSignerMessagesByFid(
+  public func getAllSignerMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1895,7 +1895,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllUserDataMessagesByFid(
+  public func getAllUserDataMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1907,7 +1907,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllLinkMessagesByFid(
+  public func getAllLinkMessagesByFid(
     _ request: FidRequest,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1919,7 +1919,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getInfo(
+  public func getInfo(
     _ request: HubInfoRequest,
     callOptions: CallOptions? = nil
   ) async throws -> HubInfoResponse {
@@ -1931,7 +1931,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getSyncStatus(
+  public func getSyncStatus(
     _ request: SyncStatusRequest,
     callOptions: CallOptions? = nil
   ) async throws -> SyncStatusResponse {
@@ -1943,7 +1943,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllSyncIdsByPrefix(
+  public func getAllSyncIdsByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) async throws -> SyncIds {
@@ -1955,7 +1955,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getAllMessagesBySyncIds(
+  public func getAllMessagesBySyncIds(
     _ request: SyncIds,
     callOptions: CallOptions? = nil
   ) async throws -> MessagesResponse {
@@ -1967,7 +1967,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getSyncMetadataByPrefix(
+  public func getSyncMetadataByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) async throws -> TrieNodeMetadataResponse {
@@ -1979,7 +1979,7 @@ extension HubServiceAsyncClientProtocol {
     )
   }
 
-  internal func getSyncSnapshotByPrefix(
+  public func getSyncSnapshotByPrefix(
     _ request: TrieNodePrefix,
     callOptions: CallOptions? = nil
   ) async throws -> TrieNodeSnapshotResponse {
@@ -1993,12 +1993,12 @@ extension HubServiceAsyncClientProtocol {
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-internal struct HubServiceAsyncClient: HubServiceAsyncClientProtocol {
-  internal var channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions
-  internal var interceptors: HubServiceClientInterceptorFactoryProtocol?
+public struct HubServiceAsyncClient: HubServiceAsyncClientProtocol {
+  public var channel: GRPCChannel
+  public var defaultCallOptions: CallOptions
+  public var interceptors: HubServiceClientInterceptorFactoryProtocol?
 
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: HubServiceClientInterceptorFactoryProtocol? = nil
@@ -2009,7 +2009,7 @@ internal struct HubServiceAsyncClient: HubServiceAsyncClientProtocol {
   }
 }
 
-internal protocol HubServiceClientInterceptorFactoryProtocol: Sendable {
+public protocol HubServiceClientInterceptorFactoryProtocol: Sendable {
 
   /// - Returns: Interceptors to use when invoking 'submitMessage'.
   func makeSubmitMessageInterceptors() -> [ClientInterceptor<Message, Message>]
@@ -2120,8 +2120,8 @@ internal protocol HubServiceClientInterceptorFactoryProtocol: Sendable {
   func makeGetSyncSnapshotByPrefixInterceptors() -> [ClientInterceptor<TrieNodePrefix, TrieNodeSnapshotResponse>]
 }
 
-internal enum HubServiceClientMetadata {
-  internal static let serviceDescriptor = GRPCServiceDescriptor(
+public enum HubServiceClientMetadata {
+  public static let serviceDescriptor = GRPCServiceDescriptor(
     name: "HubService",
     fullName: "HubService",
     methods: [
@@ -2164,218 +2164,218 @@ internal enum HubServiceClientMetadata {
     ]
   )
 
-  internal enum Methods {
-    internal static let submitMessage = GRPCMethodDescriptor(
+  public enum Methods {
+    public static let submitMessage = GRPCMethodDescriptor(
       name: "SubmitMessage",
       path: "/HubService/SubmitMessage",
       type: GRPCCallType.unary
     )
 
-    internal static let subscribe = GRPCMethodDescriptor(
+    public static let subscribe = GRPCMethodDescriptor(
       name: "Subscribe",
       path: "/HubService/Subscribe",
       type: GRPCCallType.serverStreaming
     )
 
-    internal static let getEvent = GRPCMethodDescriptor(
+    public static let getEvent = GRPCMethodDescriptor(
       name: "GetEvent",
       path: "/HubService/GetEvent",
       type: GRPCCallType.unary
     )
 
-    internal static let getCast = GRPCMethodDescriptor(
+    public static let getCast = GRPCMethodDescriptor(
       name: "GetCast",
       path: "/HubService/GetCast",
       type: GRPCCallType.unary
     )
 
-    internal static let getCastsByFid = GRPCMethodDescriptor(
+    public static let getCastsByFid = GRPCMethodDescriptor(
       name: "GetCastsByFid",
       path: "/HubService/GetCastsByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getCastsByParent = GRPCMethodDescriptor(
+    public static let getCastsByParent = GRPCMethodDescriptor(
       name: "GetCastsByParent",
       path: "/HubService/GetCastsByParent",
       type: GRPCCallType.unary
     )
 
-    internal static let getCastsByMention = GRPCMethodDescriptor(
+    public static let getCastsByMention = GRPCMethodDescriptor(
       name: "GetCastsByMention",
       path: "/HubService/GetCastsByMention",
       type: GRPCCallType.unary
     )
 
-    internal static let getReaction = GRPCMethodDescriptor(
+    public static let getReaction = GRPCMethodDescriptor(
       name: "GetReaction",
       path: "/HubService/GetReaction",
       type: GRPCCallType.unary
     )
 
-    internal static let getReactionsByFid = GRPCMethodDescriptor(
+    public static let getReactionsByFid = GRPCMethodDescriptor(
       name: "GetReactionsByFid",
       path: "/HubService/GetReactionsByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getReactionsByCast = GRPCMethodDescriptor(
+    public static let getReactionsByCast = GRPCMethodDescriptor(
       name: "GetReactionsByCast",
       path: "/HubService/GetReactionsByCast",
       type: GRPCCallType.unary
     )
 
-    internal static let getReactionsByTarget = GRPCMethodDescriptor(
+    public static let getReactionsByTarget = GRPCMethodDescriptor(
       name: "GetReactionsByTarget",
       path: "/HubService/GetReactionsByTarget",
       type: GRPCCallType.unary
     )
 
-    internal static let getUserData = GRPCMethodDescriptor(
+    public static let getUserData = GRPCMethodDescriptor(
       name: "GetUserData",
       path: "/HubService/GetUserData",
       type: GRPCCallType.unary
     )
 
-    internal static let getUserDataByFid = GRPCMethodDescriptor(
+    public static let getUserDataByFid = GRPCMethodDescriptor(
       name: "GetUserDataByFid",
       path: "/HubService/GetUserDataByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getNameRegistryEvent = GRPCMethodDescriptor(
+    public static let getNameRegistryEvent = GRPCMethodDescriptor(
       name: "GetNameRegistryEvent",
       path: "/HubService/GetNameRegistryEvent",
       type: GRPCCallType.unary
     )
 
-    internal static let getVerification = GRPCMethodDescriptor(
+    public static let getVerification = GRPCMethodDescriptor(
       name: "GetVerification",
       path: "/HubService/GetVerification",
       type: GRPCCallType.unary
     )
 
-    internal static let getVerificationsByFid = GRPCMethodDescriptor(
+    public static let getVerificationsByFid = GRPCMethodDescriptor(
       name: "GetVerificationsByFid",
       path: "/HubService/GetVerificationsByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getSigner = GRPCMethodDescriptor(
+    public static let getSigner = GRPCMethodDescriptor(
       name: "GetSigner",
       path: "/HubService/GetSigner",
       type: GRPCCallType.unary
     )
 
-    internal static let getSignersByFid = GRPCMethodDescriptor(
+    public static let getSignersByFid = GRPCMethodDescriptor(
       name: "GetSignersByFid",
       path: "/HubService/GetSignersByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getIdRegistryEvent = GRPCMethodDescriptor(
+    public static let getIdRegistryEvent = GRPCMethodDescriptor(
       name: "GetIdRegistryEvent",
       path: "/HubService/GetIdRegistryEvent",
       type: GRPCCallType.unary
     )
 
-    internal static let getIdRegistryEventByAddress = GRPCMethodDescriptor(
+    public static let getIdRegistryEventByAddress = GRPCMethodDescriptor(
       name: "GetIdRegistryEventByAddress",
       path: "/HubService/GetIdRegistryEventByAddress",
       type: GRPCCallType.unary
     )
 
-    internal static let getFids = GRPCMethodDescriptor(
+    public static let getFids = GRPCMethodDescriptor(
       name: "GetFids",
       path: "/HubService/GetFids",
       type: GRPCCallType.unary
     )
 
-    internal static let getLink = GRPCMethodDescriptor(
+    public static let getLink = GRPCMethodDescriptor(
       name: "GetLink",
       path: "/HubService/GetLink",
       type: GRPCCallType.unary
     )
 
-    internal static let getLinksByFid = GRPCMethodDescriptor(
+    public static let getLinksByFid = GRPCMethodDescriptor(
       name: "GetLinksByFid",
       path: "/HubService/GetLinksByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getLinksByTarget = GRPCMethodDescriptor(
+    public static let getLinksByTarget = GRPCMethodDescriptor(
       name: "GetLinksByTarget",
       path: "/HubService/GetLinksByTarget",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllCastMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllCastMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllCastMessagesByFid",
       path: "/HubService/GetAllCastMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllReactionMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllReactionMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllReactionMessagesByFid",
       path: "/HubService/GetAllReactionMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllVerificationMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllVerificationMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllVerificationMessagesByFid",
       path: "/HubService/GetAllVerificationMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllSignerMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllSignerMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllSignerMessagesByFid",
       path: "/HubService/GetAllSignerMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllUserDataMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllUserDataMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllUserDataMessagesByFid",
       path: "/HubService/GetAllUserDataMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllLinkMessagesByFid = GRPCMethodDescriptor(
+    public static let getAllLinkMessagesByFid = GRPCMethodDescriptor(
       name: "GetAllLinkMessagesByFid",
       path: "/HubService/GetAllLinkMessagesByFid",
       type: GRPCCallType.unary
     )
 
-    internal static let getInfo = GRPCMethodDescriptor(
+    public static let getInfo = GRPCMethodDescriptor(
       name: "GetInfo",
       path: "/HubService/GetInfo",
       type: GRPCCallType.unary
     )
 
-    internal static let getSyncStatus = GRPCMethodDescriptor(
+    public static let getSyncStatus = GRPCMethodDescriptor(
       name: "GetSyncStatus",
       path: "/HubService/GetSyncStatus",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllSyncIdsByPrefix = GRPCMethodDescriptor(
+    public static let getAllSyncIdsByPrefix = GRPCMethodDescriptor(
       name: "GetAllSyncIdsByPrefix",
       path: "/HubService/GetAllSyncIdsByPrefix",
       type: GRPCCallType.unary
     )
 
-    internal static let getAllMessagesBySyncIds = GRPCMethodDescriptor(
+    public static let getAllMessagesBySyncIds = GRPCMethodDescriptor(
       name: "GetAllMessagesBySyncIds",
       path: "/HubService/GetAllMessagesBySyncIds",
       type: GRPCCallType.unary
     )
 
-    internal static let getSyncMetadataByPrefix = GRPCMethodDescriptor(
+    public static let getSyncMetadataByPrefix = GRPCMethodDescriptor(
       name: "GetSyncMetadataByPrefix",
       path: "/HubService/GetSyncMetadataByPrefix",
       type: GRPCCallType.unary
     )
 
-    internal static let getSyncSnapshotByPrefix = GRPCMethodDescriptor(
+    public static let getSyncSnapshotByPrefix = GRPCMethodDescriptor(
       name: "GetSyncSnapshotByPrefix",
       path: "/HubService/GetSyncSnapshotByPrefix",
       type: GRPCCallType.unary
@@ -2384,7 +2384,7 @@ internal enum HubServiceClientMetadata {
 }
 
 /// Usage: instantiate `AdminServiceClient`, then call methods of this protocol to make API calls.
-internal protocol AdminServiceClientProtocol: GRPCClient {
+public protocol AdminServiceClientProtocol: GRPCClient {
   var serviceName: String { get }
   var interceptors: AdminServiceClientInterceptorFactoryProtocol? { get }
 
@@ -2410,7 +2410,7 @@ internal protocol AdminServiceClientProtocol: GRPCClient {
 }
 
 extension AdminServiceClientProtocol {
-  internal var serviceName: String {
+  public var serviceName: String {
     return "AdminService"
   }
 
@@ -2420,7 +2420,7 @@ extension AdminServiceClientProtocol {
   ///   - request: Request to send to RebuildSyncTrie.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func rebuildSyncTrie(
+  public func rebuildSyncTrie(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Empty, Empty> {
@@ -2438,7 +2438,7 @@ extension AdminServiceClientProtocol {
   ///   - request: Request to send to DeleteAllMessagesFromDb.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func deleteAllMessagesFromDb(
+  public func deleteAllMessagesFromDb(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Empty, Empty> {
@@ -2456,7 +2456,7 @@ extension AdminServiceClientProtocol {
   ///   - request: Request to send to SubmitIdRegistryEvent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func submitIdRegistryEvent(
+  public func submitIdRegistryEvent(
     _ request: IdRegistryEvent,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<IdRegistryEvent, IdRegistryEvent> {
@@ -2474,7 +2474,7 @@ extension AdminServiceClientProtocol {
   ///   - request: Request to send to SubmitNameRegistryEvent.
   ///   - callOptions: Call options.
   /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
-  internal func submitNameRegistryEvent(
+  public func submitNameRegistryEvent(
     _ request: NameRegistryEvent,
     callOptions: CallOptions? = nil
   ) -> UnaryCall<NameRegistryEvent, NameRegistryEvent> {
@@ -2491,16 +2491,16 @@ extension AdminServiceClientProtocol {
 extension AdminServiceClient: @unchecked Sendable {}
 
 @available(*, deprecated, renamed: "AdminServiceNIOClient")
-internal final class AdminServiceClient: AdminServiceClientProtocol {
+public final class AdminServiceClient: AdminServiceClientProtocol {
   private let lock = Lock()
   private var _defaultCallOptions: CallOptions
   private var _interceptors: AdminServiceClientInterceptorFactoryProtocol?
-  internal let channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions {
+  public let channel: GRPCChannel
+  public var defaultCallOptions: CallOptions {
     get { self.lock.withLock { return self._defaultCallOptions } }
     set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
   }
-  internal var interceptors: AdminServiceClientInterceptorFactoryProtocol? {
+  public var interceptors: AdminServiceClientInterceptorFactoryProtocol? {
     get { self.lock.withLock { return self._interceptors } }
     set { self.lock.withLockVoid { self._interceptors = newValue } }
   }
@@ -2511,7 +2511,7 @@ internal final class AdminServiceClient: AdminServiceClientProtocol {
   ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
   ///   - interceptors: A factory providing interceptors for each RPC.
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: AdminServiceClientInterceptorFactoryProtocol? = nil
@@ -2522,10 +2522,10 @@ internal final class AdminServiceClient: AdminServiceClientProtocol {
   }
 }
 
-internal struct AdminServiceNIOClient: AdminServiceClientProtocol {
-  internal var channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions
-  internal var interceptors: AdminServiceClientInterceptorFactoryProtocol?
+public struct AdminServiceNIOClient: AdminServiceClientProtocol {
+  public var channel: GRPCChannel
+  public var defaultCallOptions: CallOptions
+  public var interceptors: AdminServiceClientInterceptorFactoryProtocol?
 
   /// Creates a client for the AdminService service.
   ///
@@ -2533,7 +2533,7 @@ internal struct AdminServiceNIOClient: AdminServiceClientProtocol {
   ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
   ///   - interceptors: A factory providing interceptors for each RPC.
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: AdminServiceClientInterceptorFactoryProtocol? = nil
@@ -2545,7 +2545,7 @@ internal struct AdminServiceNIOClient: AdminServiceClientProtocol {
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-internal protocol AdminServiceAsyncClientProtocol: GRPCClient {
+public protocol AdminServiceAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: AdminServiceClientInterceptorFactoryProtocol? { get }
 
@@ -2572,15 +2572,15 @@ internal protocol AdminServiceAsyncClientProtocol: GRPCClient {
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension AdminServiceAsyncClientProtocol {
-  internal static var serviceDescriptor: GRPCServiceDescriptor {
+  public static var serviceDescriptor: GRPCServiceDescriptor {
     return AdminServiceClientMetadata.serviceDescriptor
   }
 
-  internal var interceptors: AdminServiceClientInterceptorFactoryProtocol? {
+  public var interceptors: AdminServiceClientInterceptorFactoryProtocol? {
     return nil
   }
 
-  internal func makeRebuildSyncTrieCall(
+  public func makeRebuildSyncTrieCall(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Empty, Empty> {
@@ -2592,7 +2592,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeDeleteAllMessagesFromDbCall(
+  public func makeDeleteAllMessagesFromDbCall(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Empty, Empty> {
@@ -2604,7 +2604,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeSubmitIDRegistryEventCall(
+  public func makeSubmitIDRegistryEventCall(
     _ request: IdRegistryEvent,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<IdRegistryEvent, IdRegistryEvent> {
@@ -2616,7 +2616,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func makeSubmitNameRegistryEventCall(
+  public func makeSubmitNameRegistryEventCall(
     _ request: NameRegistryEvent,
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<NameRegistryEvent, NameRegistryEvent> {
@@ -2631,7 +2631,7 @@ extension AdminServiceAsyncClientProtocol {
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension AdminServiceAsyncClientProtocol {
-  internal func rebuildSyncTrie(
+  public func rebuildSyncTrie(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) async throws -> Empty {
@@ -2643,7 +2643,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func deleteAllMessagesFromDb(
+  public func deleteAllMessagesFromDb(
     _ request: Empty,
     callOptions: CallOptions? = nil
   ) async throws -> Empty {
@@ -2655,7 +2655,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func submitIdRegistryEvent(
+  public func submitIdRegistryEvent(
     _ request: IdRegistryEvent,
     callOptions: CallOptions? = nil
   ) async throws -> IdRegistryEvent {
@@ -2667,7 +2667,7 @@ extension AdminServiceAsyncClientProtocol {
     )
   }
 
-  internal func submitNameRegistryEvent(
+  public func submitNameRegistryEvent(
     _ request: NameRegistryEvent,
     callOptions: CallOptions? = nil
   ) async throws -> NameRegistryEvent {
@@ -2681,12 +2681,12 @@ extension AdminServiceAsyncClientProtocol {
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-internal struct AdminServiceAsyncClient: AdminServiceAsyncClientProtocol {
-  internal var channel: GRPCChannel
-  internal var defaultCallOptions: CallOptions
-  internal var interceptors: AdminServiceClientInterceptorFactoryProtocol?
+public struct AdminServiceAsyncClient: AdminServiceAsyncClientProtocol {
+  public var channel: GRPCChannel
+  public var defaultCallOptions: CallOptions
+  public var interceptors: AdminServiceClientInterceptorFactoryProtocol?
 
-  internal init(
+  public init(
     channel: GRPCChannel,
     defaultCallOptions: CallOptions = CallOptions(),
     interceptors: AdminServiceClientInterceptorFactoryProtocol? = nil
@@ -2697,7 +2697,7 @@ internal struct AdminServiceAsyncClient: AdminServiceAsyncClientProtocol {
   }
 }
 
-internal protocol AdminServiceClientInterceptorFactoryProtocol: Sendable {
+public protocol AdminServiceClientInterceptorFactoryProtocol: Sendable {
 
   /// - Returns: Interceptors to use when invoking 'rebuildSyncTrie'.
   func makeRebuildSyncTrieInterceptors() -> [ClientInterceptor<Empty, Empty>]
@@ -2712,8 +2712,8 @@ internal protocol AdminServiceClientInterceptorFactoryProtocol: Sendable {
   func makeSubmitNameRegistryEventInterceptors() -> [ClientInterceptor<NameRegistryEvent, NameRegistryEvent>]
 }
 
-internal enum AdminServiceClientMetadata {
-  internal static let serviceDescriptor = GRPCServiceDescriptor(
+public enum AdminServiceClientMetadata {
+  public static let serviceDescriptor = GRPCServiceDescriptor(
     name: "AdminService",
     fullName: "AdminService",
     methods: [
@@ -2724,26 +2724,26 @@ internal enum AdminServiceClientMetadata {
     ]
   )
 
-  internal enum Methods {
-    internal static let rebuildSyncTrie = GRPCMethodDescriptor(
+  public enum Methods {
+    public static let rebuildSyncTrie = GRPCMethodDescriptor(
       name: "RebuildSyncTrie",
       path: "/AdminService/RebuildSyncTrie",
       type: GRPCCallType.unary
     )
 
-    internal static let deleteAllMessagesFromDb = GRPCMethodDescriptor(
+    public static let deleteAllMessagesFromDb = GRPCMethodDescriptor(
       name: "DeleteAllMessagesFromDb",
       path: "/AdminService/DeleteAllMessagesFromDb",
       type: GRPCCallType.unary
     )
 
-    internal static let submitIdRegistryEvent = GRPCMethodDescriptor(
+    public static let submitIdRegistryEvent = GRPCMethodDescriptor(
       name: "SubmitIdRegistryEvent",
       path: "/AdminService/SubmitIdRegistryEvent",
       type: GRPCCallType.unary
     )
 
-    internal static let submitNameRegistryEvent = GRPCMethodDescriptor(
+    public static let submitNameRegistryEvent = GRPCMethodDescriptor(
       name: "SubmitNameRegistryEvent",
       path: "/AdminService/SubmitNameRegistryEvent",
       type: GRPCCallType.unary

@@ -20,17 +20,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum GossipVersion: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum GossipVersion: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case v1 // = 0
   case v11 // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .v1
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .v1
     case 1: self = .v11
@@ -38,7 +38,7 @@ enum GossipVersion: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .v1: return 0
     case .v11: return 1
@@ -52,7 +52,7 @@ enum GossipVersion: SwiftProtobuf.Enum {
 
 extension GossipVersion: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [GossipVersion] = [
+  public static var allCases: [GossipVersion] = [
     .v1,
     .v11,
   ]
@@ -60,76 +60,76 @@ extension GossipVersion: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct GossipAddressInfo {
+public struct GossipAddressInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var family: UInt32 = 0
+  public var family: UInt32 = 0
 
-  var port: UInt32 = 0
+  public var port: UInt32 = 0
 
-  var dnsName: String = String()
+  public var dnsName: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct ContactInfoContent {
+public struct ContactInfoContent {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var gossipAddress: GossipAddressInfo {
+  public var gossipAddress: GossipAddressInfo {
     get {return _gossipAddress ?? GossipAddressInfo()}
     set {_gossipAddress = newValue}
   }
   /// Returns true if `gossipAddress` has been explicitly set.
-  var hasGossipAddress: Bool {return self._gossipAddress != nil}
+  public var hasGossipAddress: Bool {return self._gossipAddress != nil}
   /// Clears the value of `gossipAddress`. Subsequent reads from it will return its default value.
-  mutating func clearGossipAddress() {self._gossipAddress = nil}
+  public mutating func clearGossipAddress() {self._gossipAddress = nil}
 
-  var rpcAddress: GossipAddressInfo {
+  public var rpcAddress: GossipAddressInfo {
     get {return _rpcAddress ?? GossipAddressInfo()}
     set {_rpcAddress = newValue}
   }
   /// Returns true if `rpcAddress` has been explicitly set.
-  var hasRpcAddress: Bool {return self._rpcAddress != nil}
+  public var hasRpcAddress: Bool {return self._rpcAddress != nil}
   /// Clears the value of `rpcAddress`. Subsequent reads from it will return its default value.
-  mutating func clearRpcAddress() {self._rpcAddress = nil}
+  public mutating func clearRpcAddress() {self._rpcAddress = nil}
 
-  var excludedHashes: [String] = []
+  public var excludedHashes: [String] = []
 
-  var count: UInt32 = 0
+  public var count: UInt32 = 0
 
-  var hubVersion: String = String()
+  public var hubVersion: String = String()
 
-  var network: FarcasterNetwork = .none
+  public var network: FarcasterNetwork = .none
 
-  var appVersion: String = String()
+  public var appVersion: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _gossipAddress: GossipAddressInfo? = nil
   fileprivate var _rpcAddress: GossipAddressInfo? = nil
 }
 
-struct GossipMessage {
+public struct GossipMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var content: OneOf_Content? {
+  public var content: OneOf_Content? {
     get {return _storage._content}
     set {_uniqueStorage()._content = newValue}
   }
 
-  var message: Message {
+  public var message: Message {
     get {
       if case .message(let v)? = _storage._content {return v}
       return Message()
@@ -137,7 +137,7 @@ struct GossipMessage {
     set {_uniqueStorage()._content = .message(newValue)}
   }
 
-  var idRegistryEvent: IdRegistryEvent {
+  public var idRegistryEvent: IdRegistryEvent {
     get {
       if case .idRegistryEvent(let v)? = _storage._content {return v}
       return IdRegistryEvent()
@@ -145,7 +145,7 @@ struct GossipMessage {
     set {_uniqueStorage()._content = .idRegistryEvent(newValue)}
   }
 
-  var contactInfoContent: ContactInfoContent {
+  public var contactInfoContent: ContactInfoContent {
     get {
       if case .contactInfoContent(let v)? = _storage._content {return v}
       return ContactInfoContent()
@@ -153,30 +153,30 @@ struct GossipMessage {
     set {_uniqueStorage()._content = .contactInfoContent(newValue)}
   }
 
-  var topics: [String] {
+  public var topics: [String] {
     get {return _storage._topics}
     set {_uniqueStorage()._topics = newValue}
   }
 
-  var peerID: Data {
+  public var peerID: Data {
     get {return _storage._peerID}
     set {_uniqueStorage()._peerID = newValue}
   }
 
-  var version: GossipVersion {
+  public var version: GossipVersion {
     get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Content: Equatable {
+  public enum OneOf_Content: Equatable {
     case message(Message)
     case idRegistryEvent(IdRegistryEvent)
     case contactInfoContent(ContactInfoContent)
 
   #if !swift(>=4.1)
-    static func ==(lhs: GossipMessage.OneOf_Content, rhs: GossipMessage.OneOf_Content) -> Bool {
+    public static func ==(lhs: GossipMessage.OneOf_Content, rhs: GossipMessage.OneOf_Content) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -199,7 +199,7 @@ struct GossipMessage {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -215,22 +215,22 @@ extension GossipMessage.OneOf_Content: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension GossipVersion: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "GOSSIP_VERSION_V1"),
     1: .same(proto: "GOSSIP_VERSION_V1_1"),
   ]
 }
 
 extension GossipAddressInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "GossipAddressInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "GossipAddressInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "family"),
     3: .same(proto: "port"),
     4: .standard(proto: "dns_name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -245,7 +245,7 @@ extension GossipAddressInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -261,7 +261,7 @@ extension GossipAddressInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: GossipAddressInfo, rhs: GossipAddressInfo) -> Bool {
+  public static func ==(lhs: GossipAddressInfo, rhs: GossipAddressInfo) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.family != rhs.family {return false}
     if lhs.port != rhs.port {return false}
@@ -272,8 +272,8 @@ extension GossipAddressInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension ContactInfoContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ContactInfoContent"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "ContactInfoContent"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "gossip_address"),
     2: .standard(proto: "rpc_address"),
     3: .standard(proto: "excluded_hashes"),
@@ -283,7 +283,7 @@ extension ContactInfoContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     7: .standard(proto: "app_version"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -301,7 +301,7 @@ extension ContactInfoContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -330,7 +330,7 @@ extension ContactInfoContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ContactInfoContent, rhs: ContactInfoContent) -> Bool {
+  public static func ==(lhs: ContactInfoContent, rhs: ContactInfoContent) -> Bool {
     if lhs._gossipAddress != rhs._gossipAddress {return false}
     if lhs._rpcAddress != rhs._rpcAddress {return false}
     if lhs.excludedHashes != rhs.excludedHashes {return false}
@@ -344,8 +344,8 @@ extension ContactInfoContent: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension GossipMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "GossipMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "GossipMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
     2: .standard(proto: "id_registry_event"),
     3: .standard(proto: "contact_info_content"),
@@ -379,7 +379,7 @@ extension GossipMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -435,7 +435,7 @@ extension GossipMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -469,7 +469,7 @@ extension GossipMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: GossipMessage, rhs: GossipMessage) -> Bool {
+  public static func ==(lhs: GossipMessage, rhs: GossipMessage) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

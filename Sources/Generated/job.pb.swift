@@ -20,30 +20,30 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct RevokeMessagesBySignerJobPayload {
+public struct RevokeMessagesBySignerJobPayload {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var fid: UInt32 = 0
+  public var fid: UInt32 = 0
 
-  var signer: Data = Data()
+  public var signer: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct UpdateNameRegistryEventExpiryJobPayload {
+public struct UpdateNameRegistryEventExpiryJobPayload {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var fname: Data = Data()
+  public var fname: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -54,13 +54,13 @@ extension UpdateNameRegistryEventExpiryJobPayload: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension RevokeMessagesBySignerJobPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "RevokeMessagesBySignerJobPayload"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "RevokeMessagesBySignerJobPayload"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fid"),
     2: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -73,7 +73,7 @@ extension RevokeMessagesBySignerJobPayload: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.fid != 0 {
       try visitor.visitSingularUInt32Field(value: self.fid, fieldNumber: 1)
     }
@@ -83,7 +83,7 @@ extension RevokeMessagesBySignerJobPayload: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: RevokeMessagesBySignerJobPayload, rhs: RevokeMessagesBySignerJobPayload) -> Bool {
+  public static func ==(lhs: RevokeMessagesBySignerJobPayload, rhs: RevokeMessagesBySignerJobPayload) -> Bool {
     if lhs.fid != rhs.fid {return false}
     if lhs.signer != rhs.signer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -92,12 +92,12 @@ extension RevokeMessagesBySignerJobPayload: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension UpdateNameRegistryEventExpiryJobPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "UpdateNameRegistryEventExpiryJobPayload"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = "UpdateNameRegistryEventExpiryJobPayload"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fname"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -109,14 +109,14 @@ extension UpdateNameRegistryEventExpiryJobPayload: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.fname.isEmpty {
       try visitor.visitSingularBytesField(value: self.fname, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: UpdateNameRegistryEventExpiryJobPayload, rhs: UpdateNameRegistryEventExpiryJobPayload) -> Bool {
+  public static func ==(lhs: UpdateNameRegistryEventExpiryJobPayload, rhs: UpdateNameRegistryEventExpiryJobPayload) -> Bool {
     if lhs.fname != rhs.fname {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
