@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  hubble:
+    image: farcasterxyz/hubble:latest
+    ports:
+      - '2282:2282'
+      - '2283:2283'
+    volumes:
+      - hub_identity_data:/home/node/app/apps/hubble/.hub
+      - rocksdb_data:/home/node/app/apps/hubble/.rocks
+
+volumes:
+  hub_identity_data:
+  rocksdb_data:
