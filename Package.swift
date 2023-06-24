@@ -25,7 +25,7 @@ let package = Package(
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
             ],
             path: "Sources",
-            sources: ["Farcaster", "Generated"]),
+            sources: ["HubServiceClient", "Generated"]),
         .testTarget(
             name: "FarcasterTests",
             dependencies: ["Farcaster"]),
