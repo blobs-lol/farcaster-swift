@@ -36,6 +36,8 @@ struct GetCastsByFid {
       do {
         let res = try await client.getCastsByFid(FidRequest.with { req in
             req.fid = 2
+            req.pageSize = 10
+            req.reverse = true
         })
         print(try res.jsonString())
       } catch {
