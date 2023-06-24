@@ -52,7 +52,7 @@ extension HubServiceAsyncClient {
         eventLoopGroup: EventLoopGroup,
         transportSecurity: GRPCChannelPool.Configuration.TransportSecurity =
             .tls(GRPCTLSConfiguration.makeClientConfigurationBackedByNIOSSL())
-    ) throws -> HubServiceAsyncClientProtocol {
+    ) throws -> HubServiceAsyncClient {
         let (host, port) = try getHostAndPort(address: address)
         return self.init(
             channel: try GRPCChannelPool.with(configuration: .with(
@@ -66,7 +66,7 @@ extension HubServiceAsyncClient {
     public static func createInsecure(
         address: String,
         eventLoopGroup: EventLoopGroup
-    ) throws -> HubServiceAsyncClientProtocol {
+    ) throws -> HubServiceAsyncClient {
         let (host, port) = try getHostAndPort(address: address)
         return self.init(
             channel: try GRPCChannelPool.with(configuration: .with(
