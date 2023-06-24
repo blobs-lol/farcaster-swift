@@ -16,8 +16,9 @@ enum ValidationError: Error {
 extension HubServiceNIOClient {
     public static func createSecure(
         address: String,
-        transportSecurity: GRPCChannelPool.Configuration.TransportSecurity,
-        eventLoopGroup: EventLoopGroup
+        eventLoopGroup: EventLoopGroup,
+        transportSecurity: GRPCChannelPool.Configuration.TransportSecurity =
+            .tls(GRPCTLSConfiguration.makeClientConfigurationBackedByNIOSSL())
     ) throws -> HubServiceNIOClient {
         let (host, port) = try getHostAndPort(address: address)
         return self.init(
@@ -48,8 +49,9 @@ extension HubServiceNIOClient {
 extension HubServiceAsyncClient {
     public static func createSecure(
         address: String,
-        transportSecurity: GRPCChannelPool.Configuration.TransportSecurity,
-        eventLoopGroup: EventLoopGroup
+        eventLoopGroup: EventLoopGroup,
+        transportSecurity: GRPCChannelPool.Configuration.TransportSecurity =
+            .tls(GRPCTLSConfiguration.makeClientConfigurationBackedByNIOSSL())
     ) throws -> HubServiceAsyncClientProtocol {
         let (host, port) = try getHostAndPort(address: address)
         return self.init(

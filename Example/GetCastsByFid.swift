@@ -25,7 +25,6 @@ struct GetCastsByFid {
 
       let client = try HubServiceAsyncClient.createSecure(
         address: "nemes.farcaster.xyz:2283",
-        transportSecurity: .tls(GRPCTLSConfiguration.makeClientConfigurationBackedByNIOSSL()),
         eventLoopGroup: group
       )
 
