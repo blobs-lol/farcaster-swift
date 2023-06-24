@@ -6,6 +6,7 @@ bindings:
 		--grpc-swift_out=Client=true,Server=false:Sources/Generated
 
 build:
+	make bindings
 	swift build
 
 clean:	
