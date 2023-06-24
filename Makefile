@@ -14,6 +14,11 @@ build:
 clean:	
 	rm -rf Sources/Generated/*.pb.swift .build
 
+.PHONY: example
+example:
+	make build
+	swift run Example
+
 lint:
 	swiftlint --strict
 
