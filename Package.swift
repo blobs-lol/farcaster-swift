@@ -19,7 +19,13 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Farcaster"),
+            name: "Farcaster",
+            dependencies: [
+                .product(name: "GRPC", package: "grpc-swift"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+            ],
+            path: "Sources",
+            sources: ["Farcaster", "Generated"]),
         .testTarget(
             name: "FarcasterTests",
             dependencies: ["Farcaster"]),
