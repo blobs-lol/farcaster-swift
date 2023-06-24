@@ -11,5 +11,8 @@ build:
 clean:	
 	rm -rf Sources/Generated/*.pb.swift .build
 
+lint:
+	swiftlint --strict
+
 test:
 	swift test

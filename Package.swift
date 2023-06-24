@@ -9,11 +9,11 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Farcaster",
-            targets: ["Farcaster"]),
+            targets: ["Farcaster"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
-        .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.15.0"),
+        .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.15.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,12 +22,12 @@ let package = Package(
             name: "Farcaster",
             dependencies: [
                 .product(name: "GRPC", package: "grpc-swift"),
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             path: "Sources",
             sources: ["HubServiceClient", "Generated"]),
         .testTarget(
             name: "FarcasterTests",
-            dependencies: ["Farcaster"]),
+            dependencies: ["Farcaster"])
     ]
 )
