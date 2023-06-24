@@ -1,5 +1,5 @@
 //
-//  ClientBuilder.swift
+//  ServiceClient.swift
 //  farcaster-swift
 //
 //  Created by Michael Huang on 6/23/23.
