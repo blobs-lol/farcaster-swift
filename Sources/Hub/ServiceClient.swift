@@ -45,7 +45,7 @@ extension HubServiceNIOClient {
     }
 }
 
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension HubServiceAsyncClient {
     public static func createSecure(
         address: String,
