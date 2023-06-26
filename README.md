@@ -11,13 +11,9 @@ Alternatively, add the package dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/blobs-lol/farcaster-swift.git", from: "0.0.1")
+  .package(url: "https://github.com/blobs-lol/farcaster-swift.git", branch: "master")
 ]
 ```
-
-## Examples
-
-You can find examples of how to use farcaster-swift in the `/Examples` directory.
 
 ## Development
 
